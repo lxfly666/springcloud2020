@@ -75,10 +75,16 @@ public class PaymentController {
         return serverPort;
     }
 
+    @GetMapping(value = "/payment/test")
+    public String test(){
+        return serverPort;
+    }
+
     @GetMapping(value = "/payment/feign/timeout")
     public String paymentFeignTimeout(){
         try { TimeUnit.SECONDS.sleep(3); }catch (Exception e) {e.printStackTrace();}
         return serverPort;
     }
+
 
 }
