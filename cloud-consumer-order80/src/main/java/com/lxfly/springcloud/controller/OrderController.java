@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -49,6 +48,10 @@ public class OrderController {
       return new CommonResult(444,"操作失败");
     }
   }
-
+  // ====================> zipkin+sleuth
+  @GetMapping("/consumer/payment/zipkin")
+  public String paymentZipkin() {
+    return restTemplate.getForObject(PAYMENT_URL + "/payment/zipkin", String.class);
+  }
 
 }
